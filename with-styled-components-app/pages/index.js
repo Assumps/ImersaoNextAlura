@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import db from '../db.json'
 import Widget from '../pages/src/components/Widget'
+import Footer from '../pages/src/components/Footer'
+import GitHubCorner from '../pages/src/components/GitHubCorner'
+import QuizBackground from '../pages/src/components/QuizBackground'
+
 // function Title(props) { // propriedades ou propscidades 
 //   return (
 //   <h1>
@@ -9,12 +13,12 @@ import Widget from '../pages/src/components/Widget'
 //   )
 // }
 
-const BackgroundImage = styled.div`
-      background-image: url(${db.bg});
-      flex: 1;
-      background-size: cover;
-      background-position: center;
-`;
+// const BackgroundImage = styled.div`
+//       background-image: url(${db.bg});
+//       flex: 1;
+//       background-size: cover;
+//       background-position: center;
+// `;
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -30,7 +34,7 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-   <BackgroundImage>
+   <QuizBackground backgroundImage={db.bg}>
      <QuizContainer>
         <Widget>
             <Widget.Header>
@@ -52,8 +56,10 @@ export default function Home() {
 
           </Widget.Content>
         </Widget>
+        <Footer />
      </QuizContainer>
-   </BackgroundImage>
+     <GitHubCorner projectUrl=""/>
+   </QuizBackground>
 
     )
 }
